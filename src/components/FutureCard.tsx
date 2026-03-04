@@ -80,7 +80,7 @@ export default function FutureCard({ data, type }: FutureCardProps) {
         style={{ background: config.gradient }}
       >
         <div className="flex items-center gap-3 mb-5">
-          <span className="text-2xl sm:text-3xl">{config.emoji}</span>
+          <span className="text-xl sm:text-2xl">{config.emoji}</span>
           <h3 className={`font-display text-lg sm:text-xl tracking-wider ${config.color}`}>
             {config.label}
           </h3>
@@ -88,7 +88,7 @@ export default function FutureCard({ data, type }: FutureCardProps) {
 
         <div className="space-y-4">
           <div className="flex items-start gap-3">
-            <span className="text-lg sm:text-xl mt-0.5">💰</span>
+            <span className="text-sm sm:text-base mt-0.5">💰</span>
             <div className="min-w-0">
               <p className="text-[10px] sm:text-xs font-display tracking-wider uppercase text-muted-foreground">Projected Income</p>
               <p className="text-xl sm:text-2xl font-bold text-foreground">{data.income}</p>
@@ -96,7 +96,7 @@ export default function FutureCard({ data, type }: FutureCardProps) {
           </div>
 
           <div className="flex items-start gap-3">
-            <span className="text-lg sm:text-xl mt-0.5">📚</span>
+            <span className="text-sm sm:text-base mt-0.5">📚</span>
             <div className="min-w-0">
               <p className="text-[10px] sm:text-xs font-display tracking-wider uppercase text-muted-foreground">Skill Evolution</p>
               <p className="text-sm sm:text-base text-foreground leading-relaxed">{data.skills}</p>
@@ -104,7 +104,7 @@ export default function FutureCard({ data, type }: FutureCardProps) {
           </div>
 
           <div className="flex items-start gap-3">
-            <span className="text-lg sm:text-xl mt-0.5">🏙️</span>
+            <span className="text-sm sm:text-base mt-0.5">🏙️</span>
             <div className="min-w-0">
               <p className="text-[10px] sm:text-xs font-display tracking-wider uppercase text-muted-foreground">Lifestyle</p>
               <p className="text-sm sm:text-base text-foreground leading-relaxed">{data.lifestyle}</p>
