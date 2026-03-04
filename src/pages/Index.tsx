@@ -47,6 +47,11 @@ const Index = React.forwardRef<HTMLDivElement>((_, ref) => {
         <p className="text-[10px] text-muted-foreground/50 text-center font-display tracking-wider">
           Income projections may include remote work, freelancing, or global opportunities. Results are illustrative, not guaranteed.
         </p>
+
+        <footer className="pt-6 pb-4 text-center space-y-1 border-t border-white/5">
+          <p className="text-xs text-muted-foreground/60">© 2026 Mohd Kaif</p>
+          <p className="text-[10px] text-muted-foreground/40">Built with AI assistance</p>
+        </footer>
       </div>
     </div>
   );
