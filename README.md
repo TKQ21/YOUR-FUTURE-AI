@@ -1,73 +1,58 @@
-# Welcome to your Lovable project
+# 🚀 Future You AI
 
-## Project info
+**Future You AI** is a full-stack web app that lets you visualize your future life based on your current skills, daily effort, and career goals. Explore multiple future timelines — Optimistic, Realistic, and Lazy — to see projected income, skill evolution, lifestyle, and motivational messages from your future self.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## 🔹 Features
 
-There are several ways of editing your application.
+- **Future Simulation** – Personalized future projections using skills, effort, and career goal.
+- **Multiple Timelines** – Optimistic, Realistic, and Lazy views for comparison.
+- **Skill Evolution** – Shows how your skills can grow over time.
+- **Lifestyle Summary** – See what your daily life could look like.
+- **Motivational Messages** – Personalized encouragement from “Future You”.
+- **Shareable Future Cards** – Download neon hologram-style cards to share on social media.
+- **Habit Tracking** – Optional streak-based impact on future results.
+- **Mobile-First Neon UI** – Beautiful futuristic design with smooth animations.
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## 🛠 Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Frontend:** React, Tailwind CSS  
+- **Backend:** Node.js, Express  
+- **Database:** Supabase  
+- **AI:** OpenAI / Lovable AI for generating future narratives
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## 🎨 Screenshots / Demo
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+![Dashboard Screenshot](./screenshots/dashboard.png)  
+![Future Card Screenshot]C:\Users\HP\Downloads
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## ⚡ Quick Start
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/future-you-ai.git
+   cd future-you-ai
+   Install dependencies for frontend:
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+cd frontend
+npm install
 npm run dev
-```
 
-**Edit a file directly in GitHub**
+Install dependencies for backend:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+cd backend
+npm install
+npm run start
 
-**Use GitHub Codespaces**
+Configure environment variables:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+SUPABASE_URL=<your_supabase_url>
+SUPABASE_ANON_KEY=<your_supabase_anon_key>
+OPENAI_API_KEY=<your_openai_key>
