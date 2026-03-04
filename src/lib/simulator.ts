@@ -20,33 +20,41 @@ export interface SimulationResult {
 function generateTimeline(
   type: "optimistic" | "realistic" | "lazy",
   skills: string,
-  effort: number
+  effort: number,
+  goal: string
 ): TimelineResult {
-  const multiplier = type === "optimistic" ? 1.5 : type === "lazy" ? 0.6 : 1;
-  const base = effort * 30000 + skills.length * 5000;
+  // Realistic income bands for Indian + global remote market
+  // Base: effort maps to ₹15k–₹80k range, skills add ₹5k–₹30k
+  const skillCount = skills.split(",").map(s => s.trim()).filter(Boolean).length;
+  const effortBase = effort <= 3 ? 15000 : effort <= 6 ? 35000 : effort <= 8 ? 55000 : 80000;
+  const skillBonus = Math.min(skillCount * 8000, 40000);
+  const base = effortBase + skillBonus;
 
+  const multiplier = type === "optimistic" ? 1.6 : type === "lazy" ? 0.5 : 1;
   const incomeVal = Math.floor(base * multiplier);
-  const income = `₹${incomeVal.toLocaleString("en-IN")}/month`;
+  const income = `₹${incomeVal.toLocaleString("en-IN")}/mo`;
 
-  const skillDescriptions = {
-    optimistic: `Mastered ${skills}, building innovative projects & mentoring others`,
-    realistic: `Strong proficiency in ${skills}, consistently delivering quality work`,
-    lazy: `Basic familiarity with ${skills}, still watching tutorials`,
+  const skillList = skills || "your current skills";
+
+  const skillDescriptions: Record<typeof type, string> = {
+    optimistic: `Deep expertise in ${skillList} — shipping production code, leading small teams, and mentoring juniors.`,
+    realistic: `Solid working knowledge of ${skillList} — delivering consistently, learning on the job, growing steadily.`,
+    lazy: `Surface-level familiarity with ${skillList} — enough to talk about, not enough to build with confidence.`,
   };
 
-  const lifestyleDescriptions = {
-    optimistic: "High-status, disciplined life — respected by peers, traveling, investing",
-    realistic: "Stable, balanced life — good job, steady growth, comfortable",
-    lazy: "Comfort zone lifestyle — scrolling reels, dreaming but not doing",
+  const lifestyleDescriptions: Record<typeof type, string> = {
+    optimistic: "Disciplined routine, financial breathing room, respected in your circle. You chose hard over easy — and it shows.",
+    realistic: "Stable job, manageable stress, weekends that feel earned. Not glamorous, but genuinely good.",
+    lazy: "Comfort zone is intact. Bills get paid, but ambition stays on the shelf. You scroll past people doing what you planned to do.",
   };
 
-  const messages = {
+  const messages: Record<typeof type, string> = {
     optimistic:
-      "You pushed harder than fear. Every 5 AM alarm, every 'no' to distraction — it built this. I'm proud of you.",
+      "Every 5 AM alarm you didn't snooze, every weekend you chose practice over distraction — it built this life. I'm not lucky. I'm you, but disciplined.",
     realistic:
-      "Consistency quietly changed everything. You didn't go viral, you just didn't quit. That's rarer than talent.",
+      "You didn't go viral. You didn't burn out. You just kept showing up. That quiet consistency is rarer than talent — and it got you here.",
     lazy:
-      "You stayed comfortable. You know deep down you could do more. The potential is still there — but time isn't infinite.",
+      "You're not broken. You just kept choosing comfort over growth. The potential is still in there — but time doesn't wait. Start today. Even now, it's not too late.",
   };
 
   return {
@@ -60,8 +68,8 @@ function generateTimeline(
 export function simulateFuture(input: SimulationInput): SimulationResult {
   const { skills, effort, goal } = input;
   return {
-    optimistic: generateTimeline("optimistic", skills, effort),
-    realistic: generateTimeline("realistic", skills, effort),
-    lazy: generateTimeline("lazy", skills, effort),
+    optimistic: generateTimeline("optimistic", skills, effort, goal),
+    realistic: generateTimeline("realistic", skills, effort, goal),
+    lazy: generateTimeline("lazy", skills, effort, goal),
   };
 }

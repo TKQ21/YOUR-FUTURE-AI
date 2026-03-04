@@ -23,7 +23,7 @@ export default function TimelineTabs({ result }: TimelineTabsProps) {
       transition={{ duration: 0.5, delay: 0.2 }}
       className="space-y-6"
     >
-      <h2 className="font-display text-2xl tracking-wider text-gradient">
+      <h2 className="font-display text-xl sm:text-2xl tracking-wider text-gradient">
         🧬 Your Future in 2 Years
       </h2>
 
@@ -32,7 +32,7 @@ export default function TimelineTabs({ result }: TimelineTabsProps) {
           <button
             key={tab.key}
             onClick={() => setActive(tab.key)}
-            className={`flex-1 py-3 px-4 rounded-lg text-sm font-display tracking-wider transition-all ${
+            className={`flex-1 py-2.5 sm:py-3 px-2 sm:px-4 rounded-lg text-xs sm:text-sm font-display tracking-wider transition-all ${
               active === tab.key
                 ? "bg-card neon-glow-blue text-foreground"
                 : "text-muted-foreground hover:text-foreground"
