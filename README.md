@@ -28,8 +28,8 @@
 
 ## 🎨 Screenshots / Demo
 
-![Dashboard Screenshot](./screenshots/dashboard.png)  
-![Future Card Screenshot]C:\Users\HP\Downloads
+![Dashboard Screenshot]  : https://img.sanishtech.com/u/f8288fddb929da211b088f37901a2739.png 
+![Future Card Screenshot] : https://img.sanishtech.com/u/907afec6f291922b8de614b9f8fe47b5.png
 
 ---
 
