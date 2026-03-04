@@ -8,7 +8,6 @@ import html2canvas from "html2canvas";
 interface FutureCardProps {
   data: TimelineResult;
   type: "optimistic" | "realistic" | "lazy";
-  userName?: string;
 }
 
 const typeConfig = {
@@ -70,58 +69,59 @@ export default function FutureCard({ data, type }: FutureCardProps) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.5 }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.35 }}
     >
       <div
         ref={cardRef}
-        className={`p-6 md:p-8 rounded-2xl border ${config.borderClass} ${config.glowClass}`}
+        className={`p-5 sm:p-6 md:p-8 rounded-2xl border ${config.borderClass} ${config.glowClass}`}
         style={{ background: config.gradient }}
       >
-        <div className="flex items-center gap-3 mb-6">
-          <span className="text-3xl">{config.emoji}</span>
-          <h3 className={`font-display text-xl tracking-wider ${config.color}`}>
+        <div className="flex items-center gap-3 mb-5">
+          <span className="text-2xl sm:text-3xl">{config.emoji}</span>
+          <h3 className={`font-display text-lg sm:text-xl tracking-wider ${config.color}`}>
             {config.label}
           </h3>
         </div>
 
         <div className="space-y-4">
           <div className="flex items-start gap-3">
-            <span className="text-xl">💰</span>
-            <div>
-              <p className="text-xs font-display tracking-wider uppercase text-muted-foreground">Projected Income</p>
-              <p className="text-2xl font-bold text-foreground">{data.income}</p>
+            <span className="text-lg sm:text-xl mt-0.5">💰</span>
+            <div className="min-w-0">
+              <p className="text-[10px] sm:text-xs font-display tracking-wider uppercase text-muted-foreground">Projected Income</p>
+              <p className="text-xl sm:text-2xl font-bold text-foreground">{data.income}</p>
             </div>
           </div>
 
           <div className="flex items-start gap-3">
-            <span className="text-xl">📚</span>
-            <div>
-              <p className="text-xs font-display tracking-wider uppercase text-muted-foreground">Skill Evolution</p>
-              <p className="text-foreground">{data.skills}</p>
+            <span className="text-lg sm:text-xl mt-0.5">📚</span>
+            <div className="min-w-0">
+              <p className="text-[10px] sm:text-xs font-display tracking-wider uppercase text-muted-foreground">Skill Evolution</p>
+              <p className="text-sm sm:text-base text-foreground leading-relaxed">{data.skills}</p>
             </div>
           </div>
 
           <div className="flex items-start gap-3">
-            <span className="text-xl">🏙️</span>
-            <div>
-              <p className="text-xs font-display tracking-wider uppercase text-muted-foreground">Lifestyle</p>
-              <p className="text-foreground">{data.lifestyle}</p>
+            <span className="text-lg sm:text-xl mt-0.5">🏙️</span>
+            <div className="min-w-0">
+              <p className="text-[10px] sm:text-xs font-display tracking-wider uppercase text-muted-foreground">Lifestyle</p>
+              <p className="text-sm sm:text-base text-foreground leading-relaxed">{data.lifestyle}</p>
             </div>
           </div>
         </div>
 
-        <blockquote className={`mt-6 pt-6 border-t border-border italic ${config.color} opacity-90 text-sm leading-relaxed`}>
+        <blockquote className={`mt-5 pt-5 border-t border-border italic ${config.color} opacity-90 text-xs sm:text-sm leading-relaxed`}>
           "{data.message}"
         </blockquote>
 
-        <p className="mt-4 text-[10px] text-muted-foreground font-display tracking-widest text-right opacity-50">
+        <p className="mt-3 text-[9px] sm:text-[10px] text-muted-foreground font-display tracking-widest text-right opacity-50">
           FUTURE YOU AI
         </p>
       </div>
 
-      <div className="flex gap-2 mt-3">
+      <div className="flex flex-wrap gap-2 mt-3">
         <Button variant="outline" size="sm" onClick={speakMessage} className="text-xs gap-1.5">
           <Volume2 className="h-3.5 w-3.5" /> Hear from Future You
         </Button>
